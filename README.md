@@ -6,7 +6,7 @@ This class extends [netsuite-rest](https://github.com/ehmad11/netsuite-rest)
 
 # Installation
 
-    npm i suiteQL
+    npm i suiteql
 
 ## Quick Start
 
@@ -23,19 +23,27 @@ This class extends [netsuite-rest](https://github.com/ehmad11/netsuite-rest)
 ## query
 
     query(string, limit = 1000, offset = 0)
-string = select query to run
-limit = limit number of rows, max is 1000
-offset = Rows to start from
+    
+- **string** - select query to run
 
+- **limit** - Limit number of rows, max is 1000
+
+- **offset** - Rows to start from
+
+
+
+This method returns with the promise support, response will be in JSON format
+
+
+### Example
 
     let transactions = await suiteQL.query("select id from transaction", 10, 0);
 
-it returns with promise support, response will be JSON
-
-#### QueryAll (Stream)
+## QueryAll (Stream)
 
 When working on large number of rows, stream is handy
 
+### Example
      let items = [];
         let st = await suiteQL.queryAll(`
             select  
