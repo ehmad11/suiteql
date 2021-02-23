@@ -15,6 +15,10 @@
     "query",
     "nodejs"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
