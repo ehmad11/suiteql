@@ -1,10 +1,10 @@
 {
   "name": "suiteql",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Run SQL queries against NetSuite using SuiteQL through SuiteTalk Rest Webservices",
   "author": "Muhammad Ahmed <a@ehmad11.com> (https://ehmad11.com/)",
   "homepage": "https://github.com/ehmad11/suiteQL#readme",
-  "bugs": "https://github.com/ehmad11/suiteQL/issues",  
+  "bugs": "https://github.com/ehmad11/suiteQL/issues",
   "main": "suiteQL.js",
   "scripts": {
     "test": "jest --coverage"
