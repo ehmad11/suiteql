@@ -1,5 +1,9 @@
 
 # SuiteQL
+
+[![Node.js CI](https://github.com/ehmad11/suiteql/actions/workflows/node.js.yml/badge.svg)](https://github.com/ehmad11/suiteql/actions/workflows/node.js.yml) [![npm version](https://badge.fury.io/js/suiteql.svg)](https://www.npmjs.com/package/suiteql)  [![downloads](https://img.shields.io/npm/dm/suiteql.svg)](https://www.npmjs.com/package/suiteql)  [![Coverage Status](https://coveralls.io/repos/github/ehmad11/suiteql/badge.svg?branch=main)](https://coveralls.io/github/ehmad11/suiteql?branch=main) 
+
+
 [![NPM](https://nodei.co/npm/suiteql.png)](https://nodei.co/npm/suiteql/)
 
 Run SQL queries against NetSuite using SuiteQL through SuiteTalk Rest Webservices. 
