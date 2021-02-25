@@ -5,7 +5,7 @@
   "author": "Muhammad Ahmed <a@ehmad11.com> (https://ehmad11.com/)",
   "homepage": "https://github.com/ehmad11/suiteQL#readme",
   "bugs": "https://github.com/ehmad11/suiteQL/issues",
-  "main": "suiteQL.js",
+  "main": "suiteql.js",
   "scripts": {
     "test": "jest --coverage"
   },
