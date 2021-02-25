@@ -7,7 +7,8 @@
   "bugs": "https://github.com/ehmad11/suiteQL/issues",
   "main": "suiteql.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test-cov": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "keywords": [
     "netsuite",
@@ -26,6 +27,7 @@
     "stream": "0.0.2"
   },
   "devDependencies": {
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "coveralls": "^3.1.0"
   }
 }
