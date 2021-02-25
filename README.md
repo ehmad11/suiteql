@@ -1,4 +1,6 @@
-# # SuiteQL
+
+# SuiteQL
+[![NPM](https://nodei.co/npm/suiteql.png)](https://nodei.co/npm/suiteql/)
 
 Run SQL queries against NetSuite using SuiteQL through SuiteTalk Rest Webservices. 
 
@@ -59,5 +61,3 @@ When working on large number of rows, stream is handy
         st.on("end", () => {
             console.log("stream ended")
         });
-
-
