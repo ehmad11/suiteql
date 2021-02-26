@@ -30,12 +30,11 @@ This class extends [netsuite-rest](https://github.com/ehmad11/netsuite-rest)
 
     query(string, limit = 1000, offset = 0)
     
-- **string** - select query to run
+- **string** - Select query to run
 
 - **limit** - Limit number of rows, max is 1000
 
 - **offset** - Rows to start from
-
 
 
 This method returns with the promise support, response will be in JSON format
@@ -45,13 +44,19 @@ This method returns with the promise support, response will be in JSON format
 
     let transactions = await suiteQL.query("select id from transaction", 10, 0);
 
-## QueryAll (Stream)
+## queryAll (Stream)
 
 When working on large number of rows, stream is handy
 
+    queryAll(string, limit = 1000) 
+
+- **string** - Select query to run
+
+- **limit** - Limit number of rows, max is 1000    
+
 ### Example
      let items = [];
-        let st = await suiteQL.queryAll(`
+        let st = suiteQL.queryAll(`
             select  
                 tranid, id from transaction 
             where 

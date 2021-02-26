@@ -21,6 +21,8 @@ module.exports = class suiteql extends NetsuiteRest {
     let queryresult = {};
     if (typeof string !== "string")
       throw new TypeError("Query is not a string");
+    if (limit > 1000)
+      throw new Error("Max limit is 1000");
     string = string.replace(/\r?\n|\r/gm, "");
     let bodycontent = `{"q": "${string}" }`;
 
@@ -36,12 +38,11 @@ module.exports = class suiteql extends NetsuiteRest {
     return queryresult;
   }
 
-  queryAll(string) {
+  queryAll(string, limit = 1000) {
     const stream = new Readable({
       objectMode: true,
-      read() { },
+      read() {},
     });
-    let limit = 10;
     let offset = 0;
     const getNextPage = async () => {
       let hasMore = true;

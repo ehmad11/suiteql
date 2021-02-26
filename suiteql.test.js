@@ -80,14 +80,19 @@ describe("Netsuite SuiteQL Tests", () => {
     ).rejects.toThrow(Error);
   });
 
+  test("it should throw error if limit exceeds 1000", async () => {
+    expect.assertions(1);
+    await expect(
+      suiteQL.query("select id from transaction", 1001)
+    ).rejects.toThrow(Error);
+  });  
+
   test("it should get all 30 records from transaction table using stream", async (done) => {
     expect.assertions(1);
     let items = [];
-    let st = await suiteQL.queryAll(`
-        select  tranid, id from transaction  where rownum <= 30 
-    `);
+    let st = suiteQL.queryAll('select  tranid, id from transaction  where rownum <= 30', 5);
     st.on("data", (data) => {
-      items.push(data);
+      items.push(data);      
     });
     st.on("end", () => {
       expect(items.length).toEqual(30);
