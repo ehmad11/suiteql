@@ -21,7 +21,7 @@ module.exports = class suiteql extends NetsuiteRest {
     if (typeof string !== "string")
       throw new TypeError("Query is not a string");
     if (limit > 1000) throw new Error("Max limit is 1000");
-    // replace all \t with spaces as suggested in #1
+    // replace all \t with spaces as suggested in #5
     string = string.replace(/\t/g, ' ');
     string = string.replace(/\r?\n|\r/gm, "");
     let bodycontent = `{"q": "${string}" }`;
