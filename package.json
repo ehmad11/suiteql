@@ -23,7 +23,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "netsuite-rest": "^1.0.7",
+    "netsuite-rest": "^1.0.9",
     "stream": "0.0.2"
   },
   "devDependencies": {
