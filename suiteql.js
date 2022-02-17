@@ -3,26 +3,26 @@ var NetsuiteRest = require("netsuite-rest");
 const Readable = require("stream").Readable;
 
 module.exports = class suiteql extends NetsuiteRest {
-
   constructor(options) {
     if (typeof options !== "object")
       throw new TypeError("Please provide netsuite api credentials");
-    super(options)
+    super(options);
   }
 
   async connect() {
     return await this.request({
       path: "*",
       method: "OPTIONS",
-    })
+    });
   }
 
   async query(string, limit = 1000, offset = 0) {
     let queryresult = {};
     if (typeof string !== "string")
       throw new TypeError("Query is not a string");
-    if (limit > 1000)
-      throw new Error("Max limit is 1000");
+    if (limit > 1000) throw new Error("Max limit is 1000");
+    // replace all \t with spaces as suggested in #1
+    string = string.replace(/\t/g, ' ');
     string = string.replace(/\r?\n|\r/gm, "");
     let bodycontent = `{"q": "${string}" }`;
 
@@ -30,11 +30,10 @@ module.exports = class suiteql extends NetsuiteRest {
       path: `query/v1/suiteql?limit=${limit}&offset=${offset}`,
       method: "POST",
       body: bodycontent,
-    })
-      .then(async (response) => {
-        queryresult.items = response.data.items;
-        queryresult.hasMore = response.data.hasMore;
-      })
+    }).then(async (response) => {
+      queryresult.items = response.data.items;
+      queryresult.hasMore = response.data.hasMore;
+    });
     return queryresult;
   }
 
