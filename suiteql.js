@@ -1,8 +1,7 @@
-"use strict";
-var NetsuiteRest = require("netsuite-rest");
-const Readable = require("stream").Readable;
+import NetsuiteRest from "netsuite-rest";
+import { Readable } from "stream";
 
-module.exports = class suiteql extends NetsuiteRest {
+export default class SuiteQL extends NetsuiteRest {
   constructor(options) {
     if (typeof options !== "object")
       throw new TypeError("Please provide netsuite api credentials");
@@ -22,7 +21,7 @@ module.exports = class suiteql extends NetsuiteRest {
       throw new TypeError("Query is not a string");
     if (limit > 1000) throw new Error("Max limit is 1000");
     // replace all \t with spaces as suggested in #5
-    string = string.replace(/\t/g, ' ');
+    string = string.replace(/\t/g, " ");
     string = string.replace(/\r?\n|\r/gm, "");
     let bodycontent = `{"q": "${string}" }`;
 
@@ -56,4 +55,4 @@ module.exports = class suiteql extends NetsuiteRest {
     getNextPage();
     return stream;
   }
-};
+}

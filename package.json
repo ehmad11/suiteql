@@ -1,14 +1,15 @@
 {
   "name": "suiteql",
   "version": "1.0.8",
+  "type": "module",
   "description": "Run SQL queries against NetSuite using SuiteQL through SuiteTalk Rest Webservices",
   "author": "Muhammad Ahmed <a@ehmad11.com> (https://ehmad11.com/)",
   "homepage": "https://github.com/ehmad11/suiteql#readme",
   "bugs": "https://github.com/ehmad11/suiteql/issues",
-  "main": "suiteql.js",
+  "exports": "./suiteql.js",
   "scripts": {
-    "test": "jest --coverage",
-    "test-cov": "jest --coverage && cat ./coverage/lcov.info | coveralls"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "test-cov": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "keywords": [
     "netsuite",
@@ -29,6 +30,6 @@
   "devDependencies": {
     "coveralls": "^3.1.0",
     "dotenv": "^10.0.0",
-    "jest": "^26.6.3"
+    "jest": "^29.7.0"
   }
 }
